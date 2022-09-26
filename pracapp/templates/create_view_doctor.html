@@ -1,0 +1,164 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+     
+</head>  
+<body> 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 20%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: horizontal;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 100px) {
+  .col-25, .col-100, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+#rcorners {
+  border-radius: 25px;
+  background: #7a7670;
+  padding: 20px;
+  width: 100px;
+  height: 57px;
+}
+body {
+  background-image: url('https://i.pinimg.com/originals/25/80/4f/25804fd2c8cfb025ac22b3c2a82f213f.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h2 {
+  background-color: #f18973;
+  width: 200px;
+}
+input {
+  width: 19%;
+  padding: 12px 20px;
+}
+</style> 
+<center>
+
+{%for message in messages%}
+<div class="container mt-3 message alert alert-{{message.tags}} text-center">{{message}}</div>
+{%endfor%}
+
+<div class="form">
+<form method="POST" class="post-form" action="/doc">  
+        {% csrf_token %} 
+        <div class="container">
+          <div class="form-group row">  
+          <label class="col-sm-1 col-form-label"></label>  
+          <div class="col-sm-4">
+          <a href="/"><h2>Home Page</h2></a>  
+          <h3>Doctor SignUp</h3>    
+          </div>  
+          <div class="form-group row"><br> 
+          <div><label>First Name:</label></div>
+          <div>{{ form.first_name }}</div>
+          <div>{{ form.errors.first_name }}</div>
+          </div>
+        
+          <div class="form-group row"><br>
+          <div><label>Second Name:</label></div>
+          <div>{{ form.last_name }}</div>
+          <div>{{ form.errors.last_name }}</div>
+          </div>
+      
+          <div class="form-group row"><br>
+          <div><label>Username:</label></div>
+          <div>{{ form.username }}</div>
+          <div>{{ form.errors.username }}</div>
+          </div>
+           
+          <div class="form-group row"><br>
+          <div><label>Email:</label></div>
+          <div>{{ form.email }}</div>
+          <div>{{ form.errors.email }}</div>
+          </div>
+         
+          <div class="form-group row"><br>
+          <div><label>Address:</label></div> 
+          <div>{{ form.address }}</div>
+          <div>{{ form.errors.address }}</div>
+          </div>
+          <div class="form-group row"><br>
+          <div><label>Profile Picture</label></div>  
+          <div>{{ form.profile_picture }}</div>
+          <div>{{ form.errors.profile_picture }}</div> 
+             </div>
+          <div class="form-group row"><br>
+          <div><label>Password:</label></div> 
+          <div>{{ form.password  }}</div>  
+          <div>{{ form.errors.password }}</div>
+          
+          </div>
+      
+          <div class="form-group row"><br>
+          <div><label>ConfirmPassword:</label></div> 
+          <div>{{ form.ConfirmPassword }}</div>  
+          <div>{{ form.errors.ConfirmPassword }}</div>
+      
+        
+    <div class="form-group row"><br>
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button id="rcorners" type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</center>
+</body>  
+</html>  

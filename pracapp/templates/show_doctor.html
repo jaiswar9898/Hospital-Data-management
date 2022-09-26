@@ -1,0 +1,60 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Doctors Records</title>  
+
+</head>  
+<body>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: coral;}
+body {
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/879/541/86/apple-inc-macos-macos-big-sur-imac-abstract-hd-wallpaper-preview.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<center><a style="background-color:powderblue;"  href="/doc" class="btn btn-primary"><h1>Add New Doctor<h1></a></center>
+  <center><a style="background-color:powderblue;"  href="/patient" class="btn btn-primary"><h1>Add New Patient<h1></a></center>
+<center><h1>Hospital Data Management</h1></center>
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr><br> 
+        <th>First Name</th> 
+        <th>Second Name</th>  
+        <th>Username</th>  
+        <th>Email</th>  
+        <th>Address</th>
+
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for d in DPs %}  
+    <tr>  
+        <td>{{ d.first_name }}</td>  
+        <td>{{ d.last_name }}</td>  
+        <td>{{ d.username }}</td>  
+        <td>{{ d.email }}</td> 
+        <td>{{ d.address }}</td> 
+        <td>   
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+
+</body>  
+</html>  
